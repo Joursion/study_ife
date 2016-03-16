@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body{
+    background: #DCDCDC;
+}
+.nav {
+    width: 100%;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: right;
+    padding: 10px 20px;
+    min-height: 80px;
+    vertical-align: middle;
+}
+
+.nav .logo-img{
+    float: left;
+}
+
+.nav .logo-img img{
+    width: 120px;
+    height: 60px;
+}
+
+.nav ul{
+    margin-top: 20px;
+}
+.nav ul li{
+    display: inline-block;
+}
+.nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.main{
+    padding: 10px;
+    position: relative;
+}
+
+.main .wrap{
+    margin-left: -400px;
+    float: left;
+    width: 100%;
+}
+
+.main .side{
+    width: 400px;
+    border: 1px solid #000000;
+    float: right;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.main .wrap .article{
+    margin-left: 410px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    background-color: #ffffff;
+    padding: 10px;
+
+}
+
+.main .wrap .article img{
+    padding: 8px;
+    padding-left: 0;
+    margin: 5px auto;
+    width: 100px;
+    height: 80px;
+}
+
+.main .wrap .show_img{
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.main .wrap .show_img .img{
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid #000000;
+    margin-left: 10px;
+}
+.main .wrap .show_img .img p{
+   text-align: center;
+}
+.main .wrap .show_img .img img{
+    padding: 10px;
+    width:140px;
+    height: 90px;
+}
+.main .wrap .show_img .img:after{
+    clear: both;
+}
+
+.main .article .table{
+    width: 100%;
+}
+.main .article th{
+    color: #ffffff;
+    background-color: #333333;
+}
+
+.main .sum{
+    background: #CBCBCB;
+}
+
+.main .side .con{
+}
+
+
+.side .side_form .form-table {
+    margin: auto;
+   text-align: left;
+}
+
+
+.side .side_form .form-table .right {
+    text-align: right;
+    width: 70%;
+}
+
+.side .side_form .form-table td {
+    text-align: left;
+    width: 30%;
+}
+
+.side .side_form .form-table .tip{
+    color: #999999;
+}
+/*http://www.cnblogs.com/stephen-liu74/p/3346397.html*/
