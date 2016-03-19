@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+}
+
+/*
+
+position: absolute
+left, top 50%
+再用margin-top，用个负的box高度一半，
+margin-left:负的box宽的一半，这样就居中了
+*/
+
+.box{
+    width: 400px;
+    height: 200px;
+    background-color: #ccc;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+}
+
+.box .left{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #fc0;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    top:50%;
+    margin-top: -150px;
+}
+
+.box .right{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #fc0;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left:150px;
+    margin-top: 50px;
+}
