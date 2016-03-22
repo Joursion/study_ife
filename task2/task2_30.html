@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{
+        padding: 0;
+        box-sizing: border-box;
+    }
+    input{
+        margin-left: 20px;
+    }
+    form{
+        margin: auto;
+    }
+</style>
+<body>
+
+<form id="form" method="post">
+    <label>名称</label><input type="text" name="name">
+    <div id="name-tip"></div>
+    <label>密码</label><input type="text" name="psw">
+    <div id="psw-tip"></div>
+    <label>密码确认</label><input type="text" name="repsw">
+    <div id="repsw-tip"></div>
+    <label>邮箱</label><input type="text" name="email">
+    <div id="email-tip"></div>
+    <label>手机</label><input type="text" name="tel">
+    <div id="tel-tip"></div>
+    <button type="submit">提交</button>
+</form>
+
+
+<script>
+    var col = function (id, s) {
+        id.style.borderColor = s ? "red" : "green";
+    };
+
+    //判断汉字
+    var IsZh = function (str) {
+        return str.replace(/[^\x00-\xff]/g,"aa").length;
+    };
+
+    var st = {
+        isEmpty: function (v, err) {
+            if (v === "") {
+                return err;
+            }
+        },
+        Length: function (v, Len, err) {
+            if (IsZh(v) < Len.minl || IsZh(v) > Len.maxl) {
+                return err;
+            }
+        },
+        isMobile: function (v, err) {
+            if (!/(^1[3][5][8][0-9]{9}$)/.test(v)) {
+                return err;
+            }
+        }
+    };
+    
+    var validataFunc = function () {
+
+    }
+
+
+    
+</script>
+</body>
+</html>

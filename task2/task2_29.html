@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    input{
+        border: 1px solid #000;
+        margin-left: 20px;
+    }
+</style>
+<body>
+
+<label>名称</label><input name="name" type="text" id="input">
+<button id="btn">验证</button>
+<div id="msg"></div>
+
+<script>
+
+    var btn = document.getElementById("btn");
+    var msg = document.getElementById("msg");
+
+    //判断汉字
+    var IsZh = function (str) {
+        return str.replace(/[^\x00-\xff]/g,"aa").length;
+    };
+
+    var st = {
+        isEmpty: function (v, err) {
+            if (v === "") {
+                return err;
+            }
+        },
+        Length: function (v, Len, err) {
+            if (IsZh(v) < Len.minl || IsZh(v) > Len.maxl) {
+                return err;
+            }
+        }
+    };
+
+    var validataFunc = function () {
+        var L = {minl: 4, maxl: 16};
+        var value = input.value;
+        var msg = st.isEmpty(value, "姓名不能为空");
+        var msg2 = st.Length(value, L, "长度为4~16个字符");
+        return msg || msg2;
+    };
+
+    btn.onclick = function () {
+        var errorMsg = validataFunc();
+        if (errorMsg) {
+            msg.innerHTML = "<span style='color: #fc424a;'>" + errorMsg + "</span>";
+            input.style.borderColor = "red";
+        } else {
+            input.style.borderColor = "#47fcf9";
+            msg.innerHTML = "<span style='color: #47fcf9;'>" + "名字格式正确" + "</span>";
+        }
+        var value = input.value;
+        console.log(value.length);
+    }
+
+</script>
+</body>
+</html>

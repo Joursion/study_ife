@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    li{
+        background-color: #f7f3ff;
+
+        float: left;
+        margin: 20px;
+        list-style-type: none;
+    }
+</style>
+<body>
+<div class="sel">
+    <input type="text" id="input">
+    <button id="l-add">左侧入</button>
+    <button id="r-add">右侧入</button>
+    <button id="l-del">左侧出</button>
+    <button id="r-del">右侧出</button>
+</div>
+
+<!--展示队列的节点-->
+<ul id="myul">
+</ul>
+
+<script>
+    /*遇到的问题，当添加新的node时，新的node没有相对应的事件*/
+    (function () {
+        var lAdd = document.getElementById("l-add");
+        var rAdd = document.getElementById("r-add");
+        var lDel = document.getElementById("l-del");
+        var rDel = document.getElementById("r-del");
+        var ul = document.getElementById("myul");
+
+        //创建新的li dom
+        function create_li(node) {
+            var input = document.getElementById(node);
+            if( ! /^d+$/.test(input)) {
+                console.log('请输入数字');
+                return false;
+            }
+            var v = document.createTextNode(input.value);
+            var li = document.createElement("li");
+            li.appendChild(v);
+            return li;
+        }
+
+        //右侧加入一个节点
+        rAdd.onclick = function () {
+            var li = create_li("input");
+            ul.appendChild(li);
+        };
+
+        //左侧加入一个节点
+        lAdd.onclick = function () {
+            var pDel = document.getElementsByTagName("li");
+            var to =  pDel[0];
+            var li = create_li("input");
+            ul.insertBefore(li,to);
+        };
+
+        //左侧删除一个节点
+        lDel.onclick = function () {
+            var pDel = document.getElementsByTagName("li");
+            var target = pDel[0];
+            if(target) {
+                document.body.removeChild(target);
+            }
+            else {
+                alert("it has none node");
+            }
+        };
+
+        //右侧删除一个节点
+        rDel.onclick = function () {
+            var pDel = document.getElementsByTagName("li");
+            //获取最后一个节点
+            var target = pDel[pDel.length - 1];
+            if(target) {
+                document.body.removeChild(target);
+            }
+            else {
+                alert("it has none node");
+            }
+        };
+
+        //点击队列中任何一个元素，则该元素会被从队列中删除
+        ul.addEventListener('click', function (e) {
+                ul.removeChild(e.target);
+            }
+        );
+
+    })()
+</script>
+</body>
+</html>
